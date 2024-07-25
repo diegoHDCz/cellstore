@@ -2,11 +2,8 @@
   "version": 2,
   "builds": [
     {
-      "src": "package.json",
-      "use": "@vercel/node",
-      "config": {
-        "buildCommand": "npm run migrate && npm run build"
-      }
+      "src": "app.js",
+      "use": "@now/node"
     }
   ],
   "routes": [

@@ -1,0 +1,23 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Express App",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/src/index.ts", // Adjust the path to your entry file
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"], // Adjust if you use a different output directory
+      "preLaunchTask": "npm: dev" // Optional: if you have a build step
+    },
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Attach to Express App",
+      "port": 9229,
+      "restart": true,
+      "protocol": "inspector",
+      "restart": true
+    }
+  ]
+}
