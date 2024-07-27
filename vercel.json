@@ -10,14 +10,12 @@
     {
       "src": "/(.*)",
       "dest": "app.js"
-    },
-
-  ],
-      "functions": {
-        "app.ts": {
-          "memory": 3009,
-          "maxDuration": 60
-        }
-      }
     }
-  
+  ],
+  "functions": {
+    "app.ts": {
+      "memory": 3009,
+      "maxDuration": 60
+    }
+  }
+}

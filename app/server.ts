@@ -22,7 +22,7 @@ async () => await dbClient.sync();
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/products", productsRouter);
 app.use("/api/v1/teste", vercelRouter);
-app.use("/api/v1/", function GET(request: Request) {
+app.use("/api/v1/",function GET(request: Request) {
   return new Response(`Hello from World`);
 });
 
