@@ -13,6 +13,7 @@
     "migrate": "sequelize-cli db:migrate"
   },
   "keywords": [],
+  "engines": {"node": "20.x"},
   "author": "",
   "license": "ISC",
   "description": "",
