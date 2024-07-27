@@ -6,14 +6,16 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx tsc",
     "start": "node dist/index.js",
-    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn app.ts",
+    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn api/index.ts",
     "lint": "eslint \"./**/*.js\" --quiet",
     "lintFull": "eslint \"./**/*.js\"",
     "lintFix": "eslint . --ext .js",
-    "migrate": "sequelize-cli db:migrate"
+    "vercel-build": "echo hello"
   },
   "keywords": [],
-  "engines": {"node": "20.x"},
+  "engines": {
+    "node": "20.x"
+  },
   "author": "",
   "license": "ISC",
   "description": "",
