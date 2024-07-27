@@ -17,15 +17,13 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
-app.get("/", (req, res) => {
-  res.send("Deu bom isso aqui");
-});
-
 async () => await dbClient.sync();
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/products", productsRouter);
 
+export function GET(request: Request) {
+  return new Response(`Hello from World`);
+}
 app.listen(PORT);
 
 export default app;
