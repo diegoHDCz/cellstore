@@ -1,4 +1,10 @@
-import { Column, DataType, Model, Table } from 'sequelize-typescript';
+import {
+  AllowNull,
+  Column,
+  DataType,
+  Model,
+  Table,
+} from "sequelize-typescript";
 
 interface ProductProps {
   id?: number;
@@ -8,6 +14,7 @@ interface ProductProps {
   createdAt?: Date;
   updatedAt?: Date;
   price: number;
+  image: string
 }
 
 @Table({ timestamps: true })
@@ -20,6 +27,9 @@ class Product extends Model<ProductProps> implements ProductProps {
   description!: string;
   @Column(DataType.FLOAT)
   price!: number;
+  @AllowNull(true)
+  @Column(DataType.STRING)
+  image!: string;
 }
 
 export default Product;

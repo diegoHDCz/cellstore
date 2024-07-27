@@ -1,15 +1,15 @@
 import { Request, Response } from "express";
 import User from "../models/user";
-import { error } from "console";
-import { stringify } from "querystring";
-interface UserStoreProps {
-  firstName: string;
-  lastName: string;
-  email: string;
-  role: "ADMIN" | "USER";
+
+interface UserStoreProps{
+firstName: string;
+lastName: string;
+email: string;
+role: "ADMIN" | "USER";
 }
 
 class UserController {
+  constructor(){}
   async createUser(req: Request, res: Response) {
     const data: UserStoreProps = req.body;
     const email = data.email;
@@ -23,8 +23,8 @@ class UserController {
       }
     } catch (err) {
       console.warn(err);
-      res.status(400).send(err);
-      throw Error()
+     return res.status(400).send(err);
+
     }
     return res.status(204).send;
   }
