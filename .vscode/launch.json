@@ -1,22 +1,19 @@
 {
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "node",
-      "request": "launch",
-      "name": "Launch Express App",
-      "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}/src/index.ts", // Adjust the path to your entry file
-      "outFiles": ["${workspaceFolder}/dist/**/*.js"], // Adjust if you use a different output directory
-      "preLaunchTask": "npm: dev" // Optional: if you have a build step
-    },
-    {
-      "type": "node",
-      "request": "attach",
-      "name": "Attach to Express App",
+      "name": "Attach Exchange BE",
       "port": 9229,
-      "restart": true,
-      "protocol": "inspector",
+      "request": "attach",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node",
+      "sourceMaps": true,
+      "cwd": "${workspaceRoot}",
       "restart": true
     }
   ]

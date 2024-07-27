@@ -1,33 +1,37 @@
-// import { Table, Model, Column, DataType } from 'sequelize-typescript';
+import {
+  Column,
+  DataType,
+  Default,
+  Model,
+  Table,
+  Unique,
+} from "sequelize-typescript";
 
-// @Table({
-//   timestamps: false,
-//   tableName: 'users',
-// })
-// export class User extends Model {
+interface UserProps {
+  id?: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  role: "ADMIN" | "USER";
+  createdAt?: Date;
+  updatedAt?: Date;
+}
 
-//   @Column({
-//     type: DataType.ENUM('ADMIN', 'USER'),
-//     allowNull: false,
-//   })
-//   role!: 'ADMIN' | 'USER';
+@Table({ timestamps: true })
+export class User extends Model<UserProps> implements UserProps {
+  @Column(DataType.STRING)
+  firstName!: string;
 
-//   @Column({
-//     type: DataType.STRING,
-//     allowNull: false,
-//   })
-//   name!: string;
+  @Column(DataType.STRING)
+  lastName!: string;
 
-//   @Column({
-//     type: DataType.STRING,
-//     allowNull: false,
-//   })
-//   email!: string;
+  @Unique
+  @Column(DataType.STRING)
+  email!: string;
 
-//   @Column({
-//     type: DataType.STRING,
-//     allowNull: true,
-//     defaultValue: '',
-//   })
-//   password!: string;
-// }
+  @Default("USER")
+  @Column(DataType.STRING)
+  role!: "ADMIN" | "USER";
+}
+
+export default User;
