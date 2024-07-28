@@ -7,6 +7,7 @@ import express, { Application, Request, Response } from "express";
 import dbClient from "../services/sequlizeCon";
 import userRouter from "./users";
 import productsRouter from "./products";
+import authRouter from "./auth";
 import { containsSimilarWord } from "../services/containsWord";
 
 dotenv.config();
@@ -50,6 +51,7 @@ app.get<{}>("/", (req, res) => {
 
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/products", productsRouter);
+app.use("/api/v1/auth", authRouter);
 
 app.listen(PORT);
 

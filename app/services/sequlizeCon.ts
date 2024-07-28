@@ -24,16 +24,7 @@ const sequelizeConnection = new Sequelize(
     models: [User, Product],
   }
 );
-/**
- *  dialect: 'postgres',
-  dialectModule: pg, // I've added this.
-  timezone: process.env.TZ,
-  define: {
-    charset: 'utf8mb4',
-    collate: 'utf8mb4_general_ci',
-  },
-  logging: false,
- */
+
 
 async () => {
   try {

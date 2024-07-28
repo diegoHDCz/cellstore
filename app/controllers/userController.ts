@@ -26,7 +26,7 @@ class UserController {
       console.warn(err);
       return res.status(400).send(err);
     }
-    return res.status(204).send;
+
   }
   async findUser(req: Request, res: Response) {
     const { email } = req.params;
