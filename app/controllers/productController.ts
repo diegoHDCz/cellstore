@@ -1,6 +1,7 @@
-import { Request, Response } from "express";
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 import Product from "../models/product";
+import { Request, Response } from "express";
 
 class ProductController {
   async findAllProdcuts(req: Request, res: Response) {
@@ -75,7 +76,7 @@ class ProductController {
       return res.status(404).send("Product not found.");
     }
     await product.destroy();
-    return res.status(204).send();
+    return res.status(204);
   }
 }
 

@@ -9,4 +9,4 @@ const userController = new UserController();
 userRouter.post("/create", userController.createUser);
 userRouter.get("/find/:email", userController.findUser);
 
-export {userRouter};
+export default userRouter;

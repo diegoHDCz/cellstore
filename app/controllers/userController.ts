@@ -1,15 +1,15 @@
 import { Request, Response } from "express";
 import User from "../models/user";
 
-interface UserStoreProps{
-firstName: string;
-lastName: string;
-email: string;
-role: "ADMIN" | "USER";
+interface UserStoreProps {
+  firstName: string;
+  lastName: string;
+  email: string;
+  role: "ADMIN" | "USER";
 }
 
 class UserController {
-  constructor(){}
+  constructor() {}
   async createUser(req: Request, res: Response) {
     const data: UserStoreProps = req.body;
     const email = data.email;
@@ -17,14 +17,14 @@ class UserController {
       const userExists = await User.findOne({ where: { email } });
       if (!userExists) {
         const result = await User.create(data);
+        return res.status(200).json({ userId: result.id });
         console.log(result);
       } else {
         throw new Error("Existing user");
       }
     } catch (err) {
       console.warn(err);
-     return res.status(400).send(err);
-
+      return res.status(400).send(err);
     }
     return res.status(204).send;
   }
